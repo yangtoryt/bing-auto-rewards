@@ -80,7 +80,8 @@ jobs:
     - name: Setup accounts configuration
       run: |
         # 从GitHub Secrets读取账号配置
-        echo '${{ secrets.ACCOUNTS_CONFIG }}' > config/accounts.json
+        echo '${{ secrets.ACCOUNTS_CONFIG }}' > accounts.json
+        python -m json.tool accounts.json > /dev/null
         
     - name: Run Bing automation
       run: |
